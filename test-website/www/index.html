@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <title>Test Page</title>
+    </head>
+    <body onmousedown="window.lastMouseDownEvent=event;">
+        <h3>Custom Elements</h3>
+        <default-element id="default-element" class="default-element" name="default-element" data-id="default-element" style="-webkit-appearance:none;padding-left:0px;opacity:1.0;">Default Element</default-element>
+
+        <h3>Refresh Counter</h3>
+        <refresh-counter id="refresh-counter" class="refresh-counter" name="refresh-element" data-id="refresh-counter"></refresh-counter>
+        <script>
+            const DEFAULT_TEST_MESSAGE = "DEFAULT_TEST_MESSAGE";
+            var n = localStorage.getItem('on_load_counter');
+            if (n === null) n = 0; else n++;
+            localStorage.setItem("on_load_counter", n);
+            document.querySelector('refresh-counter').innerHTML = n;
+
+            function display_alert(type) {
+                window[type](type + DEFAULT_TEST_MESSAGE);
+            }
+        </script>
+
+        <h3>Link Element</h3>
+        <a id="link-element" class="link-element" data-id="link-element">Link Element</a>
+
+        <h3>Input Elements</h3>
+        <input id="input-element" class="input-element" data-id="input-element" value="Input Element">Input Element</input>
+        <br />
+        <input id="input-file-element" class="input-file-element" data-id="input-file-element" value="Input File Element" type="file">Input File Element</input>
+
+        <h3>Textarea Element</h3>
+        <textarea id="textarea-element" rows="5" class="textarea-element" data-id="textarea-element" value="Textarea Element">
+test
+tes
+te
+t</textarea>
+
+        <h3>Disabled Element</h3>
+        <button id="disabled-element" class="disabled-element" data-id="disabled-element" value="Disabled Element" disabled>Disabled Element</button>
+
+        <h3>Button Element (simple click)</h3>
+        <button id="simple-click-button-element" class="simple-click-button-element" data-id="simple-click-button-element" onclick="document.getElementsByClassName('simple-click-button-click-result').item(0).innerHTML='Clicked';window.simpleClickButtonLastClickEvent=event;" ondblclick="document.getElementsByClassName('simple-click-button-click-result').item(0).innerHTML='Double Clicked'">Simple Click Button Element</button>
+        <span class="simple-click-button-click-result"></span>
+
+        <h3>Select Element</h3>
+        <select id="select-element" class="select-element" data-id="select-element" value="Select Element">
+            <option value="option01" position="first">Option 01</option>
+            <option value="option02" position="second">Option 02</option>
+            <option value="option03" position="third" selected>Option 03</option>
+            <option value="option04" position="fourth">Option 04</option>
+        </select>
+
+        <h3>CSS Element</h3>
+        <div id="css-element" class="css-element" data-id="css-element" value="CSS Element" style="background-color:aquamarine; width:600px; height: 37px; font-size: 2em; align: right; text-align:center;">Text in a Div</div>
+
+        <h3>Alerts</h3>
+        <button class="alert-element display-alert-simple-element" onclick="display_alert('alert');">Alert Simple</button>
+        <button class="alert-element display-alert-confirm-element" onclick="display_alert('confirm');">Alert Confirm</button>
+        <button class="alert-element display-alert-prompt-element" onclick="display_alert('prompt');">Alert Prompt</button>
+
+        <h3>Fullscreen Elements</h3>
+        <button class="fullscreen-element enter-fullscreen" onclick="fullscreen(true);">Enter Fullscreen</button>
+        <button class="fullscreen-element exit-fullscreen" onclick="fullscreen(false);">Exit Fullscreen</button>
+
+        <h3>Visibility Elements</h3>
+        <div class="visibility-element not-displayed-element invisible" style="display: none"></div>
+        <div class="visibility-element not-visible-element invisible" style="visibility: hidden">Not Visible Element</div>
+        <div class="visibility-element not-in-viewport-element visible" style="position:absolute; width: 2px; height: 2px; left: 3000"></div>
+        <div class="visibility-element zero-opacity-element invisible" style="opacity: 0"></div>
+
+        <h3>Nested List</h3>
+        <ul id="nested-list-element" class="nested-list-element" data-id="nested-list-element">
+            <li class="li-l1 first">
+                <h3 class="h3">1</h3>
+                <ul>
+                    <li class="li-l2">1.1</li>
+                </ul>
+            </li>
+            <li class="li-l1 second">
+                <input class="input" type="checkbox">2</input>
+                <ul>
+                    <li class="li-l2">2.1</li>
+                    <li class="li-l2">2.2</li>
+                </ul>
+            </li>
+            <li class="li-l1 third">
+                <button class="button">3</button>
+                <ul>
+                    <li class="li-l2">3.1</li>
+                    <li class="li-l2">3.2</li>
+                    <li class="li-l2">3.3</li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- <h3>Aboslute Elements</h3> -->
+        <div id="absolute-element" class="absolute-element" data-id="absolute-element" value="Absolute Element" style="position:absolute;top:37px;left:400px;width:87px;height:57px;background-color: antiquewhite;">
+            Absolute Element
+        </div>
+
+        <div id="out-of-viewport-element" class="out-of-viewport-element" data-id="out-of-viewport-element" value="Out of Viewport Element" style="position:absolute;top:67px;left:3000px;background-color: antiquewhite;">
+            Out of Viewport Element
+        </div>
+
+    </body>
+</html>

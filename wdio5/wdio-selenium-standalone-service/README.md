@@ -51,6 +51,15 @@ Test @wdio/selenium-standalone-service
 
 4. Execute Tests
 
+   Start test website, from `test-website` folder
+
+   ```
+   npm i
+   npm run static-server
+   ```
+
+   Test website available @ http://localhost:3000
+   
    ```
    ./node_modules/.bin/wdio --baseUrl http://localhost:3000 wdio.conf.js
    ```

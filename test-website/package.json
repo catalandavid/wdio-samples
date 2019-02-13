@@ -1,0 +1,10 @@
+{
+  "name": "selcm-test-website",
+  "version": "0.1.0",
+  "scripts": {
+    "static-server": "node_modules/.bin/static-server --port 3000 ./www"
+  },
+  "dependencies": {
+    "static-server": "^2.2.1"
+  }
+}
